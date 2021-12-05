@@ -1,6 +1,6 @@
 package Homework_2021_12_04;
 
-public class SDNode<E>{
+public class SDNode<E> {
    
    E value;
    SDNode<E> next;

@@ -20,11 +20,40 @@ public class Homework_2021_12_04 {
          sdLinkedList.insertFirst(i);
          System.out.println(sdLinkedList);
       }
-      System.out.print("Проверка работы итератора: ");
+      System.out.print("Проверка работы итератора перебором foreach: ");
       for (Integer num : sdLinkedList) {
          System.out.print(num + " ");
       }
-      System.out.println("\nЗначение первого элемента списка: " + sdLinkedList.getFirst().value);
+      System.out.println();
+      System.out.println("Проверка работы итератора на вставку-удаление: ");
+      SDLinkedIterator<Integer> iterator = new SDLinkedIterator<Integer>(sdLinkedList.getFirst());
+      while (iterator.hasNext()) {
+         if (iterator.current() == 3) {
+            iterator.insertAfter(10);
+            System.out.printf("Вставим 10 после 3: %s\n", sdLinkedList);
+            break;
+         }
+         iterator.next();
+      }
+      iterator.reset();
+      while (iterator.hasNext()) {
+         if (iterator.current() == 3) {
+            iterator.insertBefore(20);
+            System.out.printf("Вставим 20 перед 3: %s\n", sdLinkedList);
+            break;
+         }
+         iterator.next();
+      }
+      iterator.reset();
+      while (iterator.hasNext()) {
+         if (iterator.current() == 3) {
+            iterator.deleteCurrent();
+            System.out.printf("Удалим 3:           %s\n", sdLinkedList);
+            break;
+         }
+         iterator.next();
+      }
+      System.out.println("Значение первого элемента списка: " + sdLinkedList.getFirst().value);
       for (int i = 1; i <= 5; i++) {
          System.out.print("Удалим первый элемент: ");
          sdLinkedList.removeFirst();
@@ -44,11 +73,40 @@ public class Homework_2021_12_04 {
          bdLinkedList.insertLast((float) i);
          System.out.println(bdLinkedList);
       }
-      System.out.print("Проверка работы итератора: ");
+      System.out.print("Проверка работы итератора перебором foreach: ");
       for (Float num : bdLinkedList) {
          System.out.print(num + " ");
       }
-      System.out.println("\nЗначение первого элемента списка: " + bdLinkedList.getFirst().value + ", последнего: " + bdLinkedList.getLast().value);
+      System.out.println();
+      System.out.println("Проверка работы итератора на вставку-удаление: ");
+      BDLinkedIterator<Float> iterator = new BDLinkedIterator<Float>((BDNode<Float>) bdLinkedList.getFirst());
+      while (iterator.hasNext()) {
+         if (Math.abs(iterator.current() - 5) < 0.001) {
+            iterator.insertAfter(10f);
+            System.out.printf("Вставим 10 после 5: %s\n", bdLinkedList);
+            break;
+         }
+         iterator.next();
+      }
+      iterator.reset();
+      while (iterator.hasNext()) {
+         if (Math.abs(iterator.current() - 5) < 0.001) {
+            iterator.insertBefore(20f);
+            System.out.printf("Вставим 20 перед 5: %s\n", bdLinkedList);
+            break;
+         }
+         iterator.next();
+      }
+      iterator.reset();
+      while (iterator.hasNext()) {
+         if (Math.abs(iterator.current() - 5) < 0.001) {
+            iterator.deleteCurrent();
+            System.out.printf("Удалим 5:           %s\n", bdLinkedList);
+            break;
+         }
+         iterator.next();
+      }
+      System.out.println("Значение первого элемента списка: " + bdLinkedList.getFirst().value + ", последнего: " + bdLinkedList.getLast().value);
       for (int i = 1; i <= 5; i++) {
          System.out.print("Удалим первый элемент:    ");
          bdLinkedList.removeFirst();
@@ -66,7 +124,7 @@ public class Homework_2021_12_04 {
          linkedStack.push(i);
          System.out.println(linkedStack);
       }
-      System.out.print("Проверка работы итератора: ");
+      System.out.print("Проверка работы итератора перебором foreach: : ");
       for (Integer num : linkedStack) {
          System.out.print(num + " ");
       }
@@ -90,7 +148,7 @@ public class Homework_2021_12_04 {
          linkedDequeue.pushRight((float) i);
          System.out.println(linkedDequeue);
       }
-      System.out.print("Проверка работы итератора: ");
+      System.out.print("Проверка работы итератора перебором foreach: : ");
       for (Float num : linkedDequeue) {
          System.out.print(num + " ");
       }

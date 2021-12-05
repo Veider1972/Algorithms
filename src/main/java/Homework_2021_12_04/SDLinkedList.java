@@ -11,7 +11,7 @@ public class SDLinkedList<E> implements Iterable<E> {
    }
    
    public boolean isEmpty() {
-      return first==null;
+      return first == null;
    }
    
    public boolean setFirst(SDNode<E> first) {
@@ -46,7 +46,7 @@ public class SDLinkedList<E> implements Iterable<E> {
    }
    
    public Iterator<E> iterator() {
-      return new LinkedIterator<E>(first);
+      return new SDLinkedIterator<E>(first);
    }
    
    @Override
@@ -62,4 +62,6 @@ public class SDLinkedList<E> implements Iterable<E> {
       sb.append("]");
       return sb.toString();
    }
+   
+   
 }
